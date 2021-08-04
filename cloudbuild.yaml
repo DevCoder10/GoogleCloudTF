@@ -1,10 +1,29 @@
+# steps:
+# - name: 'gcr.io/cloud-builders/gcloud'
+#   args:
+#   - functions
+#   - deploy
+#   - hello_world
+#   - --source=.
+#   - --trigger-http
+#   - --runtime=python37
+#   - --allow-unauthenticated
+
+
 steps:
-- name: 'gcr.io/cloud-builders/gcloud'
-  args:
-  - functions
-  - deploy
-  - hello_world
-  - --source=.
-  - --trigger-http
-  - --runtime=python37
-  - --allow-unauthenticated
+- name: 'gcr.io/ecstatic-backup-319018-ID/terraform'
+  args: ['init',
+    '-backend-config=project=PROJECT-ID',
+    '-backend-config=bucket=BUCKET-NAME']
+  env:
+    - "TF_VAR_project-name=ecstatic-backup-319018"
+
+- name: 'gcr.io/ecstatic-backup-319018/terraform'
+  args: ['plan']
+  env:
+    - "TF_VAR_project-name=ecstatic-backup-319018"
+
+- name: 'gcr.io/ecstatic-backup-319018/terraform'
+  args: ['apply', '-auto-approve']
+  env:
+    - "TF_VAR_project-name=ecstatic-backup-319018"
