@@ -34,7 +34,7 @@ provider "google" {
     project     = "ecstatic-backup-319018"
 }
 
-resource "google_service_account" "default" {
+resource "google_service_account" "pcs" {
   account_id   = "ecstatic-backup-319018"
   display_name = "test-terraform2"
 }
