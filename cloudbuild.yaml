@@ -11,6 +11,7 @@
 
 
 steps:
+#step 1 init
 - name: 'gcr.io/ecstatic-backup-319018/terraform'
   args: ['init',
     '-backend-config=project=ecstatic-backup-319018',
@@ -18,11 +19,13 @@ steps:
   env:
     - "TF_VAR_project-name=ecstatic-backup-319018"
 
+#step 2 plan
 - name: 'gcr.io/ecstatic-backup-319018/terraform'
   args: ['plan']
   env:
     - "TF_VAR_project-name=ecstatic-backup-319018"
 
+#step 3 apply
 - name: 'gcr.io/ecstatic-backup-319018/terraform'
   args: ['apply', '-auto-approve']
   env:
