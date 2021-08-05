@@ -1,32 +1,24 @@
-# steps:
-# - name: 'gcr.io/cloud-builders/gcloud'
-#   args:
-#   - functions
-#   - deploy
-#   - hello_world
-#   - --source=.
-#   - --trigger-http
-#   - --runtime=python37
-#   - --allow-unauthenticated #
-
+# integrate tf with cloud build 
+# using build steps
+# 
 
 steps:
 #step 1 init
-- name: 'gcr.io/ecstatic-backup-319018/terraform'
+- name: 'hashicorp/terraform:1.0.0'
   args: ['init',
     '-backend-config=project=ecstatic-backup-319018',
-    '-backend-config=bucket=ecstatic-backup-319018-tfstate']
+    '-backend-config=bucket=ecstatic-backup-319018-tfstate1']
   env:
     - "TF_VAR_project-name=ecstatic-backup-319018"
 
 #step 2 plan
-- name: 'gcr.io/ecstatic-backup-319018/terraform'
+- name: 'hashicorp/terraform:1.0.0'
   args: ['plan']
   env:
     - "TF_VAR_project-name=ecstatic-backup-319018"
 
 #step 3 apply
-- name: 'gcr.io/ecstatic-backup-319018/terraform'
+- name: 'hashicorp/terraform:1.0.0'
   args: ['apply', '-auto-approve']
   env:
     - "TF_VAR_project-name=ecstatic-backup-319018"
