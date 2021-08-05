@@ -11,9 +11,9 @@
 
 
 steps:
-- name: 'gcr.io/ecstatic-backup-319018-ID/terraform'
+- name: 'gcr.io/ecstatic-backup-319018/terraform'
   args: ['init',
-    '-backend-config=project=PROJECT-ID',
+    '-backend-config=project=ecstatic-backup-319018',
     '-backend-config=bucket=BUCKET-NAME']
   env:
     - "TF_VAR_project-name=ecstatic-backup-319018"
