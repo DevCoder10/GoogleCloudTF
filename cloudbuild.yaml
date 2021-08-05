@@ -7,7 +7,7 @@
 #   - --source=.
 #   - --trigger-http
 #   - --runtime=python37
-#   - --allow-unauthenticated
+#   - --allow-unauthenticated ##
 
 
 steps:
@@ -15,7 +15,7 @@ steps:
 - name: 'gcr.io/ecstatic-backup-319018/terraform'
   args: ['init',
     '-backend-config=project=ecstatic-backup-319018',
-    '-backend-config=bucket=BUCKET-NAME']
+    '-backend-config=bucket=ecstatic-backup-319018-tfstate1']
   env:
     - "TF_VAR_project-name=ecstatic-backup-319018"
 
