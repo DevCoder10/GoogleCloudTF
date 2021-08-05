@@ -1,6 +1,3 @@
-provider "google" {
-    project     = "ecstatic-backup-319018"
-}
 /*
 resource "google_compute_network" "vpc_network" {
   project = "ecstatic-backup-319018"
@@ -32,6 +29,10 @@ resource "google_compute_subnetwork" "network-with-private-secondary-ip-ranges" 
   source_tags = ["web"]
 }
 */
+
+provider "google" {
+    project     = "ecstatic-backup-319018"
+}
 
 resource "google_service_account" "default" {
   account_id   = "ecstatic-backup-319018"
