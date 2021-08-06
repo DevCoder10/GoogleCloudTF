@@ -1,4 +1,4 @@
-/*   
+/* 
 resource "google_compute_network" "vpc_network" {
   project = "ecstatic-backup-319018"
   name = "vpc-network-terraform"
