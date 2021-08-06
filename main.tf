@@ -40,7 +40,7 @@ resource "google_service_account" "default" {
 }
 
 resource "google_container_cluster" "primary" {
-  name     = "my-gke-cluster"
+  name     = "my-gke-cluster2"
   location = "us-central1"
 
   
