@@ -1,4 +1,4 @@
-/*  
+/*   
 resource "google_compute_network" "vpc_network" {
   project = "potent-galaxy-321008"
   name = "vpc-network-terraform"
