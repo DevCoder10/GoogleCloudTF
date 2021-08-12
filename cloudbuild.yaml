@@ -6,19 +6,19 @@ steps:
 #step 1 init
 - name: 'hashicorp/terraform:1.0.0'
   args: ['init',
-    '-backend-config=project=ecstatic-backup-319018',
-    '-backend-config=bucket=ecstatic-backup-319018-tfstate1']
+    '-backend-config=project=potent-galaxy-321008',
+    '-backend-config=bucketpotent-galaxy-321008-tfstate']
   env:
-    - "TF_VAR_project-name=ecstatic-backup-319018"
+    - "TF_VAR_project-name=potent-galaxy-321008"
 
 #step 2 plan
 - name: 'hashicorp/terraform:1.0.0'
   args: ['plan']
   env:
-    - "TF_VAR_project-name=ecstatic-backup-319018"
+    - "TF_VAR_project-name=potent-galaxy-321008"
 
 #step 3 apply
 - name: 'hashicorp/terraform:1.0.0'
   args: ['apply', '-auto-approve']
   env:
-    - "TF_VAR_project-name=ecstatic-backup-319018"
+    - "TF_VAR_project-name=potent-galaxy-321008"
