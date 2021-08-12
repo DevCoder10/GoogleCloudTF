@@ -1,6 +1,6 @@
 /*  
 resource "google_compute_network" "vpc_network" {
-  project = "ecstatic-backup-319018"
+  project = "potent-galaxy-321008"
   name = "vpc-network-terraform"
   auto_create_subnetworks = false
   mtu  = 1500
@@ -31,11 +31,11 @@ resource "google_compute_subnetwork" "network-with-private-secondary-ip-ranges" 
 */
 
 provider "google" {
-    project     = "ecstatic-backup-319018"
+    project     = "potent-galaxy-321008"
 }
 
 resource "google_service_account" "default" {
-  account_id   = "ecstatic-backup-319018"
+  account_id   = "potent-galaxy-321008"
   display_name = "test-terraform2"
 }
 
