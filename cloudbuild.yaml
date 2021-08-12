@@ -1,6 +1,6 @@
 # integrate tf with cloud build 
 # using build steps
-#     
+#      
 
 steps:
 #step 1 init
