@@ -1,24 +1,26 @@
 # integrate tf with cloud build  
 # using build steps
-#   
+# Step 1: runs 'terraform init' command
+# Step 2: runs 'terraform plan' command
+# Step 3: runs 'terraform apply' command 
 
 steps:
-#step 1 init
+#1
 - name: 'hashicorp/terraform:1.0.0'
   args: ['init',
-    '-backend-config=project=potent-galaxy-321008',
-    '-backend-config=bucketpotent-galaxy-321008-tfstate']
+    '-backend-config=project=PROJECTID',
+    '-backend-config=bucketPROJECTID-tfstate']
   env:
-    - "TF_VAR_project-name=potent-galaxy-321008"
+    - "TF_VAR_project-name=PROJECTID"
 
-#step 2 plan
+#2
 - name: 'hashicorp/terraform:1.0.0'
   args: ['plan']
   env:
-    - "TF_VAR_project-name=potent-galaxy-321008"
+    - "TF_VAR_project-name=PROJECTID"
 
-#step 3 apply
+#3
 - name: 'hashicorp/terraform:1.0.0'
   args: ['apply', '-auto-approve']
   env:
-    - "TF_VAR_project-name=potent-galaxy-321008"
+    - "TF_VAR_project-name=PROJECTID"
